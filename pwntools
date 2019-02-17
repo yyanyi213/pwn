@@ -1,5 +1,6 @@
 ROPgadget:
 ROPgadget --binary ret2syscall --only 'pop|ret' | grep "eax"
+ROPgadget --binary ret2syscall --string '/bin/sh'
 
 pwntools:
 from pwn import *
