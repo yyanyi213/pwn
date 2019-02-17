@@ -1,0 +1,41 @@
+## linux PWN入坑指南
+
+### 工具准备篇：（1-2天）
+1、Linux下pwn从入门到放弃（https://paper.seebug.org/481/）
+**环境：虚拟机ubuntu16.04,调试工具包括gdb、peda、pwntools（其它工具暂时不用，以后用到了再装）
+工具：IDAPro7.0（用于静态分析）
+掌握基本的gdb的使用方法：https://linuxtools-rst.readthedocs.io/zh_CN/latest/tool/gdb.html**
+
+### 基础入门篇：（3-5天）
+**1、理论篇**
+手把手教你栈溢出从入门到放弃（上）（https://zhuanlan.zhihu.com/p/25816426）
+手把手教你栈溢出从入门到放弃（下）（https://zhuanlan.zhihu.com/p/25892385）
+linux栈溢出学习笔记 https://kevien.github.io/2017/08/16/linux%E6%A0%88%E6%BA%A2%E5%87%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/
+**2、实战篇**
+Linux栈溢出入门实战篇 https://www.anquanke.com/post/id/169554
+Linux PWN从入门到熟练 https://www.anquanke.com/post/id/164530
+Linux pwn从入门到熟练（二）https://www.anquanke.com/post/id/168468
+(Linux PWN从入门到熟练的练习题 https://github.com/desword/pwn_execrise)
+
+
+### 进阶篇：（10-20天）
+**1、ROP(5-10天）**
+蒸米教程：一步一步学ROP
+**2、练习（5-10天）**
+ （1）PWN学习总结之基础栈溢出 https://0x48.pw/2016/11/03/0x26/ 
+ （2）PWN学习总结之基础栈溢出2 https://0x48.pw/2016/11/21/0x27/
+**3、参考书（必读）**
+程序员的自我修养
+
+### 练习篇：（30～天）
+**从实践中学习pwn的各种知识点（常见ROP技巧、字符串格式化利用，CANARY绕过，pwntools的熟练应用等）**
+1、hackme.inndy的pwn （中偏易）
+2、Hitcon-Training lab1-lab15（https://xz.aliyun.com/t/3902）台湾大佬Angelboy搞的一个pwn练习题集合（从简单到较难，技巧较多）
+
+### 挑战篇：（180～天）
+1、https://pwnable.kr/，从最简单的入门练习到全宇宙最难的关卡，涉及的知识面最全面
+2、https://pwnable.tw/，最接近真实环境的各种PWN的技能点的练习，如果你能通关，你将是PWN界的绝对大佬
+
+### 要点：
+1、IDA静态分析程序逻辑、寻找漏洞点
+2、在漏洞点附近下断点，通过gdb动态跟踪，查看执行流程、观察内存布局，构造exp链
