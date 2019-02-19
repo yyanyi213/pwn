@@ -44,3 +44,12 @@ p.sendline(payload)
 p.interactive()
 
   
+将程序作为服务绑定在某个端口上
+socat TCP4-LISTEN:10001,fork EXEC:./level1
+nc 127.0.0.1 10001
+
+开core dump
+ulimit -c unlimited
+
+关闭ASLR
+echo 0 > /proc/sys/kernel/randomize_va_space
